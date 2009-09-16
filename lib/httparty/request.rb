@@ -21,12 +21,14 @@ module HTTParty
     
     def uri
       new_uri = path.relative? ? URI.parse("#{options[:base_uri]}#{path}") : path
+      print "Uri: #{new_uri} "
       
       # avoid double query string on redirects [#12]
       unless @redirect
         new_uri.query = query_string(new_uri)
       end
-      
+      puts "... #{new_uri}"
+
       new_uri
     end
     
@@ -89,10 +91,11 @@ module HTTParty
         if options[:query].is_a?(Hash)
           query_string_parts << options[:default_params].merge(options[:query]).to_params
         else
-          query_string_parts << options[:default_params].to_params unless options[:default_params].nil?
+          query_string_parts << options[:default_params].to_params unless options[:default_params].nil? || options[:default_params].empty?
           query_string_parts << options[:query] unless options[:query].nil?
         end
         
+        print "[ qsp = #{query_string_parts.inspect}, options[default_params] = #{options[:default_params].inspect} ]"
         query_string_parts.size > 0 ? query_string_parts.join('&') : nil
       end
       

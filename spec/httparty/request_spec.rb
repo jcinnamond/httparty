@@ -18,6 +18,12 @@ describe HTTParty::Request do
   before do
     @request = HTTParty::Request.new(Net::HTTP::Get, 'http://api.foo.com/v1', :format => :xml)
   end
+
+  describe "uri" do
+    it "should not add ? to the end of the request if there are no params" do
+      @request.uri.request_uri.should == "/v1"
+    end
+  end
   
   describe "#format" do
     it "should return the correct parsing format" do
