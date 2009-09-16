@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{httparty}
-  s.version = "0.4.5"
+  s.version = "0.4.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["John Nunemaker"]
-  s.date = %q{2009-09-12}
+  s.authors = ["John Nunemaker", "Sandro Turriate"]
+  s.date = %q{2009-09-16}
   s.default_executable = %q{httparty}
   s.description = %q{Makes http fun! Also, makes consuming restful web services dead easy.}
   s.email = %q{nunemaker@gmail.com}
@@ -51,6 +51,7 @@ Gem::Specification.new do |s|
      "lib/httparty/core_extensions.rb",
      "lib/httparty/exceptions.rb",
      "lib/httparty/module_inheritable_attributes.rb",
+     "lib/httparty/parsers.rb",
      "lib/httparty/request.rb",
      "lib/httparty/response.rb",
      "lib/httparty/version.rb",
@@ -74,21 +75,22 @@ Gem::Specification.new do |s|
   s.post_install_message = %q{When you HTTParty, you must party hard!}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
+  s.rubyforge_project = %q{httparty}
   s.rubygems_version = %q{1.3.1}
   s.summary = %q{Makes http fun! Also, makes consuming restful web services dead easy.}
   s.test_files = [
     "spec/httparty/cookie_hash_spec.rb",
-     "spec/httparty/request_spec.rb",
      "spec/httparty/response_spec.rb",
+     "spec/httparty/request_spec.rb",
      "spec/httparty_spec.rb",
      "spec/spec_helper.rb",
-     "examples/aaws.rb",
-     "examples/basic.rb",
-     "examples/delicious.rb",
-     "examples/google.rb",
-     "examples/rubyurl.rb",
      "examples/twitter.rb",
-     "examples/whoismyrep.rb"
+     "examples/basic.rb",
+     "examples/whoismyrep.rb",
+     "examples/delicious.rb",
+     "examples/rubyurl.rb",
+     "examples/aaws.rb",
+     "examples/google.rb"
   ]
 
   if s.respond_to? :specification_version then
